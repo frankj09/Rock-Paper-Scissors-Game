@@ -1,0 +1,49 @@
+from random import randint
+import time
+
+player = False
+moves = ["rock", "paper", "scissors"]
+
+while player == False:
+  computer = moves[randint(0, 2)]
+  print("Pick a move: 'Rock', 'Paper', or 'Scissors'")
+  player = input()
+
+  if player.lower() not in moves:
+    print("Unrecognized move, check the spelling and try again.")
+    time.sleep(1)
+    player = False
+    continue
+
+  print("Rock!")
+  time.sleep(.5)
+  print("Paper!")
+  time.sleep(.5)
+  print("Scissors!")
+  time.sleep(.5)
+  print("Shoot!")
+  time.sleep(.5)
+
+  if computer == player.lower():
+    print("It's A Tie. You both picked "+player+". Try Again!")
+
+  elif computer == "rock":
+    if player.lower() == "paper":
+      print("You Win! Your opponent picked rock!")
+    else:
+      print("You Lose. Your opponent picked rock. Try Again!")
+
+  elif computer == "paper":
+    if player.lower() == "scissors":
+      print("You Win! Your opponent picked paper!")
+    else:
+      print("You Lose. Your opponent picked paper. Try Again!")
+
+  elif computer == "scissors":
+    if player.lower() == "rock":
+      print("You Win! Your opponent picked scissors!")
+    else:
+      print("You Lose. Your opponent picked scissors. Try Again!")
+
+  time.sleep(1)
+  player = False
